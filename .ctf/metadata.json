@@ -1,0 +1,15 @@
+{
+  "title": "Google CTF 2021: tonality",
+  "description": "A signing oracle over a protobuf protocol: the server signs one message of your choice and you must forge a signature on another.",
+  "question": "Retrieve the flag from the challenge service.",
+  "category": "CRYPTO",
+  "difficulty": 4,
+  "evidence_kind": "SECRET",
+  "capabilities": [
+    "ecdsa",
+    "signing-oracle",
+    "elliptic-curves",
+    "protobuf",
+    "cryptography"
+  ]
+}

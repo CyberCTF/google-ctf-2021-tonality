@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# tonality (Google's 2021 security competition, by Google; a crypto challenge) as an Isoloom spec:
+# an ECDSA signing oracle that signs a message scaled by a value you choose, over a protobuf protocol.
+# The challenge folder 2021/quals/crypto-tonality of Google's challenge archive is vendored unchanged in app/ and built by its own Dockerfile.
+# `isoloom generate`, then `isoloom run docker`.
+version: 1
+name: google-ctf-2021-tonality
+
+networks:
+  lab: { cidr: 10.60.182.0/24, internet: false }
+
+machines:
+  challenge:
+    networks: { lab: 10 }
+    services: [{ port: 1337, name: challenge, publish: 1337 }]
+    resources: { cpus: 1, memory_mb: 512 }
+    privileged: true  # the image's setup script mounts /proc and nsjail creates namespaces
+    docker:
+      build: app/challenge
+
+checks:
+  - name: the challenge service answers
+    tcp: challenge:1337
+    wait: 120
+  - name: the server sends the two messages of the challenge
+    script: checks/probe.sh
+    wait: 60
+
+message: |
+  tonality (Google, 2021) answers at `nc localhost {{ machines.challenge.services.0.publish }}`.
+  The server lets you scale its key before it signs: what does that do to the signature it returns?
