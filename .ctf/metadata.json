@@ -3,6 +3,6 @@
   "description": "A signing oracle over a protobuf protocol: the server signs one message of your choice and you must forge a signature on another.",
   "question": "Retrieve the flag from the challenge service.",
   "category": "CRYPTO",
-  "difficulty": 4,
+  "difficulty": 3,
   "evidence_kind": "SECRET"
 }
