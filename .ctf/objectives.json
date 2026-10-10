@@ -1,0 +1,61 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Use the signing oracle to forge a signature on the second message and read the flag.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "CTF{%s}"
+      },
+      "dev": "CTF{dev-google-ctf-2021-tonality}",
+      "hints": [
+        "The server scales its private key by a value you choose before it signs.",
+        "Write the signature equation and see how the scaled key relates to the original one."
+      ],
+      "steps": [
+        {
+          "key": "scheme",
+          "title": "Identify the signature scheme",
+          "prompt": "Which signature algorithm does the server use?",
+          "check": {
+            "answer": [
+              "ecdsa",
+              "elliptic curve dsa",
+              "elliptic curve digital signature algorithm"
+            ]
+          }
+        },
+        {
+          "key": "control",
+          "title": "Find your input",
+          "prompt": "What do you control in the first signature request? (what is multiplied)",
+          "check": {
+            "answer": [
+              "private key",
+              "the private key",
+              "key",
+              "the key",
+              "scalar",
+              "key multiplier"
+            ]
+          }
+        },
+        {
+          "key": "class",
+          "title": "Name the attack class",
+          "prompt": "What class of attack abuses signatures made under a key related to the target key?",
+          "check": {
+            "answer": [
+              "related key",
+              "related-key",
+              "related key attack",
+              "related-key attack",
+              "key scaling"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

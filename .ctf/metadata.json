@@ -1,7 +1,7 @@
 {
   "title": "Google CTF 2021: tonality",
   "description": "A signing oracle over a protobuf protocol: the server signs one message of your choice and you must forge a signature on another.",
-  "question": "Retrieve the flag from the challenge service.",
+  "question": "Forge a signature on the server's second message and read the flag.",
   "category": "CRYPTO",
   "difficulty": 3,
   "evidence_kind": "SECRET"
