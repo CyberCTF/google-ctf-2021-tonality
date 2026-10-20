@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-google-ctf-2021-tonality",
+  "slug": "google-ctf-2021-tonality",
   "title": "Google CTF 2021: tonality",
   "description": "A signing oracle over a protobuf protocol: the server signs one message of your choice and you must forge a signature on another.",
-  "question": "Forge a signature on the server's second message and read the flag.",
-  "category": "CRYPTO",
+  "category": "crypto",
   "difficulty": 3,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Forge a signature on the server's second message and read the flag."
 }
